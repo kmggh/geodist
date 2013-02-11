@@ -9,12 +9,13 @@ This is a test and example file for using geodist.
 __author__ = 'Ken Guyton'
 
 from kmg import geodist
+from kmg.angle import AngleDeg
 
-SFO_LAT = 37.61940
-SFO_LONG = -122.37392
+SFO_LAT = AngleDeg(37.61940)
+SFO_LONG = AngleDeg(-122.37392)
 
-TW_LAT = 37.77677
-TW_LONG = -122.41673
+TW_LAT = AngleDeg(37.77677)
+TW_LONG = AngleDeg(-122.41673)
 
 # Distance measured with measurement tool on Google Maps.
 GMAP_DIST = 11.1148
@@ -47,7 +48,7 @@ def main():
   print '\nUsing the great circle computation.\n'
   report_error(GMAP_DIST, gc_dist)
 
-  print '\nCompare great circle to flat..\n'
+  print '\nCompare great circle to flat.\n'
   report_error(gc_dist, dist)
 
   print
