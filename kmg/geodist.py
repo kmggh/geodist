@@ -30,7 +30,7 @@ class GeoDist(object):
   All input angles are expected to be Angle objects.
   """
 
-  def delta_lat(self, delta_lat):
+  def delta_lat_miles(self, delta_lat):
     """The distance in miles for a change in latitude."""
 
     return delta_lat.dist_from_radius(EARTH_RADIUS)
@@ -40,7 +40,7 @@ class GeoDist(object):
 
     return EARTH_RADIUS * lat.cos()
 
-  def delta_long(self, lat, delta_long):
+  def delta_long_miles(self, lat, delta_long):
     """The distance in miles at the given change in longitude at latitude."""
 
     return delta_long.dist_from_radius(self.parallel_radius(lat))
@@ -53,8 +53,8 @@ class GeoDist(object):
   def distance(self, coord1, coord2):
     """Compute the distance between two Coordinates."""
 
-    delta_x = self.delta_long(coord1.lat, coord1.delta_long(coord2))
-    delta_y = self.delta_lat(coord1.delta_lat(coord2))
+    delta_x = self.delta_long_miles(coord1.lat, coord1.delta_long(coord2))
+    delta_y = self.delta_lat_miles(coord1.delta_lat(coord2))
 
     return self.cartesian_dist(delta_x, delta_y)
 
@@ -85,11 +85,6 @@ class Coordinate(object):
 
 class GreatCircle(object):
   """Compute a distance using the great circle method."""
-
-  def __init__(self):
-    """Use a geodist object."""
-
-    self.geodist = GeoDist()
 
   def distance(self, coord1, coord2):
     """Compute the distance using the great circle."""

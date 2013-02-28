@@ -17,6 +17,14 @@ The tests in test_geodist.py and an example program, **dist_sf.py**
 illustrate how to use the code.
 
 
+Library Usage
+=============
+
+See the program **basic_usage.py** for a simple example.  Note that
+the **GeoDist** and **GreatCircle** classes have the same interface,
+i.e., they are used the same way.
+
+
 To run
 ======
 
@@ -60,7 +68,7 @@ measurement tool.
 
 The differences could be due to:
 
-1. Errors in Google Maps.
+1. Errors in Google Maps or in the lab measurement tool.
 2. Variations introduced by topographic features.
 3. Differences introduced by the mean earth radius used.
 

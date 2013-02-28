@@ -41,16 +41,16 @@ class TestGeoDist(unittest.TestCase):
   def test_create(self):
     self.assertNotEqual(self.geodist, None)
 
-  def test_delta_lat(self):
-    self.assertAlmostEqual(self.geodist.delta_lat(ONE_DEG),
+  def test_delta_lat_miles(self):
+    self.assertAlmostEqual(self.geodist.delta_lat_miles(ONE_DEG),
                            ONE_DEG_OF_LAT, delta=4)
 
   def test_parallel(self):
     self.assertAlmostEqual(self.geodist.parallel_radius(TEST_LAT),
                            PARALLEL_RADIUS, delta=4)
 
-  def test_delta_long(self):
-    self.assertAlmostEqual(self.geodist.delta_long(TEST_LAT, ONE_DEG),
+  def test_delta_long_miles(self):
+    self.assertAlmostEqual(self.geodist.delta_long_miles(TEST_LAT, ONE_DEG),
                            ONE_DEG_OF_LONG, delta=4)
 
   def test_cartesian_dist(self):
